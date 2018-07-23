@@ -6,6 +6,7 @@ arena_r = 127; %radius of the arena (R)
 
 % Load the paths
 load('test_paths.mat');
+addpath(genpath('feats'))
 
 %% Geometric features
 [path_features,path_features_cell,header_,header_cell] = features_geometric(paths);
