@@ -1,4 +1,4 @@
-function [angle_average,angle_median,angle_iqr,angle] = path_angle_from_center( pts, arena_x, arena_y, varargin )
+function angle = path_angle_from_center( pts, arena_x, arena_y)
 %PATH_ANGLE_FROM_CENTER computes the angle of each trajectory point from
 %the center of the arena.
 
@@ -23,9 +23,5 @@ function [angle_average,angle_median,angle_iqr,angle] = path_angle_from_center( 
         
         angle = [angle ; theta];
     end
-    
-    angle_average = mean(angle);
-    angle_median = median(angle);
-    angle_iqr = iqr(angle);  
 end
 

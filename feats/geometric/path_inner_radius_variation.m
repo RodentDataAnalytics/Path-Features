@@ -1,4 +1,4 @@
-function [ CVri,distance_average,distance_median,distance_iqr ] = path_inner_radius_variation( pts,varargin )
+function [ CVri,distance_average,distance_median,distance_iqr,distance ] = path_inner_radius_variation( pts,varargin )
 %PATH_INNER_RADIOUS_VARIATION returns various metrics regarding the minimum 
 %enclosing ellipsoid
 %Formula: CVri = IQR(ri) / Median(ri), where:

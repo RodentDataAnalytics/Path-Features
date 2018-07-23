@@ -1,8 +1,12 @@
-function [total_curv1,median_curv1,iqr_curv1,avg_curv1,curv1] = path_curvature(pts,varargin)
+function [avg_curv1,curv1] = path_curvature(pts,varargin)
 % Idea: https://github.com/adamfranco/curvature/wiki
 % Radius of the circumcircle formula:
 % http://www.mathopenref.com/trianglecircumcircle.html
 %%
+
+%INPUT:
+% - avg_curv1: curve radius every two points
+% - curv1: curve radius on every point
     
     MAX_VALUE = 0; %max value when curvature is NaN or Inf
     KILL_MAX_VALUE = 1; %keep/discard indexes with MAX_VALUE
@@ -17,9 +21,6 @@ function [total_curv1,median_curv1,iqr_curv1,avg_curv1,curv1] = path_curvature(p
 
     curv1 = [];
     avg_curv1 = [];
-    total_curv1 = 0;
-    median_curv1 = 0;
-    iqr_curv1 = 0;
     
     kk = 0;
     if size(pts,2) == 2 %no time
@@ -73,17 +74,10 @@ function [total_curv1,median_curv1,iqr_curv1,avg_curv1,curv1] = path_curvature(p
     if ~isempty(curv1)
         avg_curv1 = curv1(1);
     else % all the points have been excluded
-        total_curv1 = 0;
-        iqr_curv1 = 0;
-        median_curv1 = 0;
         return
     end
     
     for i = 2:length(curv1)
-        avg_curv1 = [avg_curv1 ; (curv1(i-1)+curv1(i)/2)];
+        avg_curv1 = [avg_curv1 ; ((curv1(i-1)+curv1(i))/2)];
     end
-    
-    total_curv1 = mean(avg_curv1);
-    iqr_curv1 = iqr(avg_curv1);
-    median_curv1 = median(avg_curv1);
 end
