@@ -1,5 +1,4 @@
-function [rel_ang_average,rel_ang_median,rel_ang_iqr,rel_ang,...
-		  ang_average,ang_median,ang_iqr,abs_ang] 				= path_angle(pts,varargin)
+function [rel_ang,abs_ang] = path_angle(pts,varargin)
 %PATH_ANGLE calculates the average, median, IQR absolute and relative angle
 %of the path. Any undefined values will be equal to 0.
 
@@ -47,9 +46,6 @@ function [rel_ang_average,rel_ang_median,rel_ang_iqr,rel_ang,...
 			
         rel_ang = [rel_ang;theta];
     end	
-    rel_ang_average = mean(rel_ang);
-    rel_ang_median = median(rel_ang);
-    rel_ang_iqr = iqr(rel_ang); 	
 
 	
 	%% Absolute Angles	
@@ -71,9 +67,6 @@ function [rel_ang_average,rel_ang_median,rel_ang_iqr,rel_ang,...
         end
 			
         abs_ang = [abs_ang;theta];
-    end			 
-    ang_average = mean(abs_ang);
-    ang_median = median(abs_ang);
-    ang_iqr = iqr(abs_ang); 
+    end		    
 end
 

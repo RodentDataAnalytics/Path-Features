@@ -53,7 +53,7 @@ function sinu = path_sinuosity(pts,varargin)
             end
         case {'Benhamou' , 'Benhamou-balanced'}
             % Get the absolute angles
-            [~,~,~,~,~,~,~,abs_ang] = path_angle(pts);
+            [~,abs_ang] = path_angle(pts);
             % Compute mean sine and cosine
             s = mean(sin(abs_ang));
             c = mean(cos(abs_ang));

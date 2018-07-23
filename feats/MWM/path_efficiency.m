@@ -1,4 +1,4 @@
-function [ eff ] = path_efficiency( pts,platform_x,platform_y,varargin )
+function [ eff ] = path_efficiency( pts,platform_x,platform_y)
 %PATH_EFFICIENCY computes the ratio between the minimum distance from the
 %starting location to the platform and the total distance
 
