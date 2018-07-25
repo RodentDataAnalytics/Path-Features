@@ -2,7 +2,7 @@
 % Properties
 arena_x = 0; %center of the arena (x coordinate)
 arena_y = 0; %center of the arena (y coordinate)
-arena_r = 127; %radius of the arena (R)
+arena_r = 510; %radius of the arena (R)
 
 % Load the paths
 load('test_paths.mat');

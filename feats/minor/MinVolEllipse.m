@@ -46,6 +46,8 @@ function [A , c] = MinVolEllipse(P, tolerance)
 % Moshtagh, N., 2005. Minimum volume enclosing ellipsoid. 
 % Convex Optimization, 111, p.112.
 
+MAX_ITER = 100000; % add a break to the loop (Avgoustinos Vouros, 2018)
+
 %%%%%%%%%%%%%%%%%%%%% Solving the Dual problem %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ---------------------------------
 % data points 
@@ -92,6 +94,9 @@ while err > tolerance
     % Increment count and update u
     count = count + 1;
     u = new_u;
+    if count > MAX_ITER
+        break
+    end
 end
 
 
